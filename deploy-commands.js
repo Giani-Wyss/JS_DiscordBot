@@ -31,9 +31,10 @@ const rest = new REST({ version: '10' }).setToken(token);
 		// And of course, make sure you catch and log any errors!
 		console.error(error);
 	}
+
+	await rest.put(
+		Routes.applicationCommands(clientId),
+		{ body: commands },
+	);
 })();
 
-await rest.put(
-	Routes.applicationCommands(clientId),
-	{ body: commands },
-);

@@ -1,9 +1,11 @@
 const { SlashCommandBuilder } = require('discord.js');
 
-client.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return;
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('ping')
+		.setDescription('Replies with Pong!'),
+	async execute(interaction) {
+		await interaction.reply('Pong!');
+	},
+};
 
-	if (interaction.commandName === 'ping') {
-		await interaction.reply({ content: 'Secret Pong!', ephemeral: true });
-	}
-});
