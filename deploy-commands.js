@@ -32,3 +32,8 @@ const rest = new REST({ version: '10' }).setToken(token);
 		console.error(error);
 	}
 })();
+
+await rest.put(
+	Routes.applicationCommands(clientId),
+	{ body: commands },
+);
